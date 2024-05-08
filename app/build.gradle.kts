@@ -74,4 +74,5 @@ dependencies {
     implementation(libs.coil)
     implementation (libs.translate)
     implementation ("com.github.AAChartModel:AAChartCore-Kotlin:7.2.1")
+    implementation (libs.androidx.datastore.preferences)
 }
