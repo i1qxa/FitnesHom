@@ -1,0 +1,30 @@
+package aps.fithom.aweq.presentation.questions.fragments
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import aps.fithom.aweq.databinding.FragmentTargetCarbsBinding
+import aps.fithom.aweq.presentation.questions.QuestionsViewModel
+
+class TargetCarbsFragment : Fragment() {
+    private val binding by lazy { FragmentTargetCarbsBinding.inflate(layoutInflater) }
+    private val viewModel by activityViewModels<QuestionsViewModel>()
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.etTargetCarbs.doOnTextChanged{text, _, _, _ ->
+            viewModel.targetCarbs =
+                text.toString().toInt()
+        }
+    }
+}

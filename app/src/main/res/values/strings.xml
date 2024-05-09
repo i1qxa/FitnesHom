@@ -1,4 +1,26 @@
 <resources>
     <string name="app_name">Fitnes Hom</string>
     <string name="begin">Начать</string>
+    <string name="app_description">
+        Приложение для здорового питания\n\n
+        Хотите питаться правильно и сбалансированно? С нашим приложением вы сможете составить рацион питания, который будет соответствовать вашим потребностям и целям.\n\n
+        Основные функции приложения:\n\n
+        1) Составление рационов питания. Вы можете выбрать один из готовых рационов или создать свой собственный. Приложение учитывает ваши потребности в калориях, белках, жирах и углеводах.\n\n
+        2) Отслеживание потребления. Приложение поможет вам отслеживать, сколько калорий, белков, жиров и углеводов вы потребляете. Это поможет вам контролировать свой рацион и достигать поставленных целей.\n\n
+        3) Составление списка покупок. На основе составленного рациона приложение поможет вам составить список покупок. Вы сможете легко и быстро купить все необходимые продукты.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">Далее</string>
+    <string name="current_weight">Текущий вес</string>
+    <string name="enter_current_weight">Укажите ваш текущий вес</string>
+    <string name="enter_target_weight">Укажите вес к которому вы стремитесь</string>
+    <string name="target_weight">Желаемый вес</string>
+    <string name="enter_target_calories">Укажите ежедневную норму калорий к которой вы стремитесь</string>
+    <string name="target_calories">Норма калорий</string>
+    <string name="enter_target_protein">Укажите количество белков в ежедневном рационе в граммах к которому вы стремитесь</string>
+    <string name="target_protein">Белки</string>
+    <string name="enter_target_fat">Укажите количество жиров в ежедневном рационе в граммах к которому вы стремитесь</string>
+    <string name="target_fat">Жиры</string>
+    <string name="enter_target_carbs">Укажите количество углеводов в ежедневном рационе в граммах к которому вы стремитесь</string>
+    <string name="target_carbs">Углеводы</string>
 </resources>

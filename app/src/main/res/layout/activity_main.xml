@@ -7,58 +7,111 @@
     android:layout_height="match_parent"
     tools:context=".presentation.main.MainActivity">
 
+    <ImageView
+        android:id="@+id/mainBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/main_backgound"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidHor70"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7"
-        />
+        app:layout_constraintGuide_percent="0.7" />
 
-    <ImageView
-        android:id="@+id/mainBackground"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidHor10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardAppName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange_a400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guidHor10"
+        app:layout_constraintWidth_percent="0.5">
+
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poetsen"
+            android:paddingVertical="20dp"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="35sp" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <ScrollView
+        android:id="@+id/tvScroll"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/main_backgound"
-        />
+        app:layout_constraintTop_toBottomOf="@id/cardAppName"
+        app:layout_constraintBottom_toTopOf="@id/guidHor70"
+        android:background="@drawable/text_background"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:id="@+id/tvAppDescription"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingVertical="20dp"
+            android:text="@string/app_description"
+            style="@style/tv_main" />
+
+    </ScrollView>
+
 
     <ProgressBar
         android:id="@+id/baseProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="@id/btnStart"
-        app:layout_constraintEnd_toEndOf="@id/btnStart"
-        app:layout_constraintTop_toTopOf="@id/btnStart"
-        app:layout_constraintBottom_toBottomOf="@id/btnStart"
         android:src="@drawable/button_background"
-        />
+        app:layout_constraintBottom_toBottomOf="@id/btnStart"
+        app:layout_constraintEnd_toEndOf="@id/btnStart"
+        app:layout_constraintStart_toStartOf="@id/btnStart"
+        app:layout_constraintTop_toTopOf="@id/btnStart" />
 
     <TextView
         android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/begin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guidHor70"
-        android:textSize="30sp"
+        android:fontFamily="@font/roboto"
         android:padding="25dp"
+        android:text="@string/begin"
         android:textColor="@color/white"
+        android:textSize="30sp"
         android:visibility="gone"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidHor70" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

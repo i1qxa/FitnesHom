@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.questions.fragments.CurrentWeightFragment"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/tvCurrentWeightHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/tv_header_small"
+        android:text="@string/enter_current_weight"
+        android:layout_marginTop="20dp"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/etCurrentWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/current_weight"
+            style="@style/tv_header_small"
+            android:inputType="numberDecimal"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+</LinearLayout>

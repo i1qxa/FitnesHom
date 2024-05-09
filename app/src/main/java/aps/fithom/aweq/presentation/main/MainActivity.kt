@@ -17,7 +17,6 @@ import aps.fithom.aweq.domain.State
 import aps.fithom.aweq.domain.dataStore
 import aps.fithom.aweq.presentation.monitoring.MonitoringActivity
 import aps.fithom.aweq.presentation.questions.QuestionsActivity
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -38,38 +37,41 @@ class MainActivity : AppCompatActivity() {
         setupBtnClickListener()
     }
 
-    private fun observeState(){
-        viewModel.state.observe(this){ state ->
-            if (state==State.COMPLETE){
+    private fun observeState() {
+        viewModel.state.observe(this) { state ->
+            if (state == State.COMPLETE) {
                 binding.baseProgress.visibility = View.GONE
                 binding.btnStart.visibility = View.VISIBLE
+                binding.tvScroll.visibility = View.VISIBLE
             }
         }
     }
 
-    private fun setupBtnClickListener(){
+    private fun setupBtnClickListener() {
         binding.btnStart.setOnClickListener {
             launchNextScreen()
         }
     }
 
-    private fun launchNextScreen(){
+    private fun launchNextScreen() {
         lifecycleScope.launch {
-            dataStore.data.collect{
-                val isInitialSetupComplete = it[IS_INITIAL_SETUP_COMPLETE]?:false
-                if (isInitialSetupComplete){
+            dataStore.data.collect {
+                val isInitialSetupComplete = it[IS_INITIAL_SETUP_COMPLETE] ?: false
+                if (isInitialSetupComplete) {
                     launchMonitoringActivity()
-                }else{
+                } else {
                     launchQuestionsActivity()
                 }
             }
         }
     }
-    private fun launchQuestionsActivity(){
+
+    private fun launchQuestionsActivity() {
         val intent = Intent(this, QuestionsActivity::class.java)
         startActivity(intent)
     }
-    private fun launchMonitoringActivity(){
+
+    private fun launchMonitoringActivity() {
         val intent = Intent(this, MonitoringActivity::class.java)
         startActivity(intent)
     }

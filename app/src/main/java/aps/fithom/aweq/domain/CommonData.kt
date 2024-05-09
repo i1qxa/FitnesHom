@@ -5,11 +5,12 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import aps.fithom.aweq.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
 
-const val BASE_DELAY:Long = 3000
+const val BASE_DELAY:Long = 500
 
 enum class State{
     LOADING, COMPLETE, ERROR
@@ -47,6 +48,14 @@ fun FragmentManager.launchNewFragment(fragment: Fragment){
     TODO("Сделать MonitoringActivity и заменить котейнер")
     this.beginTransaction().apply {
 //        replace(R.id.foodConteiner, fragment)
+        addToBackStack(null)
+        commit()
+    }
+}
+
+fun FragmentManager.launchNewQuestion(fragment: Fragment){
+    this.beginTransaction().apply {
+        replace(R.id.conteinerQuiestions, fragment)
         addToBackStack(null)
         commit()
     }
