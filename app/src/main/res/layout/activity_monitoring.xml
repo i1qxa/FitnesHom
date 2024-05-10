@@ -7,4 +7,138 @@
     android:layout_height="match_parent"
     tools:context=".presentation.monitoring.MonitoringActivity">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/monitoringConteiner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:name="aps.fithom.aweq.presentation.monitoring.shoping_list.ShopingListFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomMenuBackground"
+        />
+
+    <ImageView
+        android:id="@+id/bottomMenuBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/bottom_menu_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        android:contentDescription="@string/background"
+        />
+
+    <ImageView
+        android:id="@+id/shopingListIcon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/racionIcon"
+        app:layout_constraintTop_toTopOf="@id/bottomMenuBackground"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/shopping_list"
+        app:layout_constraintHeight_percent="0.05"
+        android:contentDescription="@string/racion"
+        />
+
+    <TextView
+        android:id="@+id/tvShopingList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/shopingListIcon"
+        app:layout_constraintEnd_toEndOf="@id/shopingListIcon"
+        app:layout_constraintTop_toBottomOf="@id/shopingListIcon"
+        android:text="@string/shoping_list"
+        android:fontFamily="@font/roboto"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        />
+
+    <ImageView
+        android:id="@+id/racionIcon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toEndOf="@id/shopingListIcon"
+        app:layout_constraintEnd_toStartOf="@id/progresIcon"
+        app:layout_constraintTop_toTopOf="@id/bottomMenuBackground"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/recipe"
+        app:layout_constraintHeight_percent="0.05"
+        android:contentDescription="@string/racion"
+        />
+
+    <TextView
+        android:id="@+id/tvRacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/racionIcon"
+        app:layout_constraintEnd_toEndOf="@id/racionIcon"
+        app:layout_constraintTop_toBottomOf="@id/racionIcon"
+        android:text="@string/racion"
+        android:fontFamily="@font/roboto"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/progresIcon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toEndOf="@id/racionIcon"
+        app:layout_constraintEnd_toStartOf="@id/targetIcon"
+        app:layout_constraintTop_toTopOf="@id/bottomMenuBackground"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/progress"
+        app:layout_constraintHeight_percent="0.05"
+        android:contentDescription="@string/progress"
+        />
+
+    <TextView
+        android:id="@+id/tvProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/progresIcon"
+        app:layout_constraintEnd_toEndOf="@id/progresIcon"
+        app:layout_constraintTop_toBottomOf="@id/progresIcon"
+        android:text="@string/progress"
+        android:fontFamily="@font/roboto"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/targetIcon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toEndOf="@id/progresIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bottomMenuBackground"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/target"
+        app:layout_constraintHeight_percent="0.05"
+        android:contentDescription="@string/target"
+        />
+
+    <TextView
+        android:id="@+id/tvTarget"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/targetIcon"
+        app:layout_constraintEnd_toEndOf="@id/targetIcon"
+        app:layout_constraintTop_toBottomOf="@id/targetIcon"
+        android:text="@string/target"
+        android:fontFamily="@font/roboto"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

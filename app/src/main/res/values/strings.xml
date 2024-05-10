@@ -23,4 +23,9 @@
     <string name="target_fat">Жиры</string>
     <string name="enter_target_carbs">Укажите количество углеводов в ежедневном рационе в граммах к которому вы стремитесь</string>
     <string name="target_carbs">Углеводы</string>
+    <string name="target">Цели\n</string>
+    <string name="progress">Прогрес</string>
+    <string name="racion">Рацион\n</string>
+    <string name="background">Фон\n</string>
+    <string name="shoping_list">Список покупок</string>
 </resources>
