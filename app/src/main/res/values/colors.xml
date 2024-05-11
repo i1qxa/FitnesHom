@@ -2,5 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="orange_a100">#ff9e80</color>
     <color name="orange_a400">#ff3d00</color>
+    <color name="orange_a700">#dd2c00</color>
+    <color name="energy">#00e676</color>
+    <color name="protein">#651fff</color>
+    <color name="fat">#ff1744</color>
+    <color name="carbs">#d500f9</color>
+    <color name="grey_light">#e0e0e0</color>
 </resources>

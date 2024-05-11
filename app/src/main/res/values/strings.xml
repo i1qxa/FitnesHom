@@ -28,4 +28,14 @@
     <string name="racion">Рацион\n</string>
     <string name="background">Фон\n</string>
     <string name="shoping_list">Список покупок</string>
+    <string name="new_racion">Новый рацион</string>
+    <string name="add_recipe">Добавить рецепт</string>
+    <string name="energy">Энергетическая ценность</string>
+    <string name="protein">Белки</string>
+    <string name="carbs">Углеводы</string>
+    <string name="fat">Жиры</string>
+    <string name="kcal_and_value">Энергетическая ценность: %1$d ккал</string>
+    <string name="protein_and_value">Белки: %1$d</string>
+    <string name="fat_and_value">Жиры: %1$d</string>
+    <string name="carb_and_value">Углеводы: %1$d</string>
 </resources>

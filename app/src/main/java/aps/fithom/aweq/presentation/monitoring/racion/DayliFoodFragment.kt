@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import aps.fithom.aweq.R
 
-class RacionListFragment : Fragment() {
+class DayliFoodFragment : Fragment() {
 
     companion object {
-        fun newInstance() = RacionListFragment()
+        fun newInstance() = DayliFoodFragment()
     }
 
-    private val viewModel: RacionListViewModel by viewModels()
+    private val viewModel: DayliFoodViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +26,6 @@ class RacionListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_racion_list, container, false)
+        return inflater.inflate(R.layout.fragment_dayli_food, container, false)
     }
 }

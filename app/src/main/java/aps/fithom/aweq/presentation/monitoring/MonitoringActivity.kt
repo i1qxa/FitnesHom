@@ -1,7 +1,6 @@
 package aps.fithom.aweq.presentation.monitoring
 
 import android.os.Bundle
-import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -9,16 +8,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.FragmentOnAttachListener
 import aps.fithom.aweq.R
-import aps.fithom.aweq.databinding.ActivityMainBinding
 import aps.fithom.aweq.databinding.ActivityMonitoringBinding
 import aps.fithom.aweq.domain.launchNewFragment
 import aps.fithom.aweq.domain.makeInvisible
 import aps.fithom.aweq.domain.makeVisible
 import aps.fithom.aweq.presentation.monitoring.progres.ProgresFragment
-import aps.fithom.aweq.presentation.monitoring.racion.RacionListFragment
 import aps.fithom.aweq.presentation.monitoring.shoping_list.ShopingListFragment
 import aps.fithom.aweq.presentation.monitoring.target.TargetFragment
-import aps.fithom.aweq.presentation.questions.fragments.TargetFatFragment
 
 class MonitoringActivity : AppCompatActivity() {
 

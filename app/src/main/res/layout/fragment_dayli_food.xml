@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.monitoring.racion.DayliFoodFragment">
+
+    <ImageView
+        android:id="@+id/topMenuBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/top_menu_background"
+        app:layout_constraintBottom_toBottomOf="@id/pbFat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvEnergy"
+        style="@style/property_header"
+        android:layout_marginTop="5dp"
+        android:text="@string/energy"
+        android:textColor="@color/energy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvEnergyCurrent"
+        style="@style/property_header"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/energy"
+        app:layout_constraintBottom_toBottomOf="@id/pbEnergy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pbEnergy"
+        tools:text="1500" />
+
+    <ProgressBar
+        android:id="@+id/pbEnergy"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        android:progressDrawable="@drawable/fit_hom_progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvEnergy"
+        app:layout_constraintWidth_percent="0.75"
+        tools:max="100"
+        tools:progress="75" />
+
+    <TextView
+        android:id="@+id/tvEnergyTarget"
+        style="@style/property_header"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/energy"
+        app:layout_constraintBottom_toBottomOf="@id/pbEnergy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pbEnergy"
+        tools:text="2500" />
+
+    <TextView
+        android:id="@+id/tvProtein"
+        style="@style/property_header"
+        android:layout_marginTop="5dp"
+        android:text="@string/protein"
+        android:textColor="@color/protein"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pbEnergy" />
+
+    <TextView
+        android:id="@+id/tvProteinCurrent"
+        style="@style/property_header"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/protein"
+        app:layout_constraintBottom_toBottomOf="@id/pbProtein"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pbProtein"
+        tools:text="1500" />
+
+    <ProgressBar
+        android:id="@+id/pbProtein"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        android:progressDrawable="@drawable/fit_hom_progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvProtein"
+        app:layout_constraintWidth_percent="0.75"
+        tools:max="100"
+        tools:progress="35" />
+
+    <TextView
+        android:id="@+id/tvProteinTarget"
+        style="@style/property_header"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/protein"
+        app:layout_constraintBottom_toBottomOf="@id/pbProtein"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pbProtein"
+        tools:text="2500" />
+
+    <TextView
+        android:id="@+id/tvCarb"
+        style="@style/property_header"
+        android:layout_marginTop="5dp"
+        android:text="@string/carbs"
+        android:textColor="@color/carbs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pbProtein" />
+
+    <TextView
+        android:id="@+id/tvCarbCurrent"
+        style="@style/property_header"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/carbs"
+        app:layout_constraintBottom_toBottomOf="@id/pbCarbs"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pbCarbs"
+        tools:text="1500" />
+
+    <ProgressBar
+        android:id="@+id/pbCarbs"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        android:progressDrawable="@drawable/fit_hom_progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCarb"
+        app:layout_constraintWidth_percent="0.75"
+        tools:max="100"
+        tools:progress="35" />
+
+    <TextView
+        android:id="@+id/tvCarbTarget"
+        style="@style/property_header"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/carbs"
+        app:layout_constraintBottom_toBottomOf="@id/pbCarbs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pbCarbs"
+        tools:text="2500" />
+
+    <TextView
+        android:id="@+id/tvFat"
+        style="@style/property_header"
+        android:layout_marginTop="5dp"
+        android:text="@string/fat"
+        android:textColor="@color/fat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pbCarbs" />
+
+    <TextView
+        android:id="@+id/tvFatCurrent"
+        style="@style/property_header"
+        android:layout_marginStart="10dp"
+        android:paddingBottom="20dp"
+        android:textColor="@color/fat"
+        app:layout_constraintBottom_toBottomOf="@id/pbFat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pbFat"
+        tools:text="1500" />
+
+    <ProgressBar
+        android:id="@+id/pbFat"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp"
+        android:progressDrawable="@drawable/fit_hom_progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFat"
+        app:layout_constraintWidth_percent="0.75"
+        tools:max="100"
+        tools:progress="35" />
+
+    <TextView
+        android:id="@+id/tvFatTarget"
+        style="@style/property_header"
+        android:layout_marginEnd="10dp"
+        android:paddingBottom="20dp"
+        android:textColor="@color/fat"
+        app:layout_constraintBottom_toBottomOf="@id/pbFat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pbFat"
+        tools:text="2500" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRecipeList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topMenuBackground"
+
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddNewRecipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/orange_a400"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
