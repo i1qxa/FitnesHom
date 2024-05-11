@@ -13,6 +13,7 @@ import aps.fithom.aweq.domain.launchNewFragment
 import aps.fithom.aweq.domain.makeInvisible
 import aps.fithom.aweq.domain.makeVisible
 import aps.fithom.aweq.presentation.monitoring.progres.ProgresFragment
+import aps.fithom.aweq.presentation.monitoring.racion.dayliFood.DayliFoodFragment
 import aps.fithom.aweq.presentation.monitoring.shoping_list.ShopingListFragment
 import aps.fithom.aweq.presentation.monitoring.target.TargetFragment
 
@@ -38,7 +39,7 @@ class MonitoringActivity : AppCompatActivity() {
             supportFragmentManager.launchNewFragment(ShopingListFragment())
         }
         binding.racionIcon.setOnClickListener {
-            supportFragmentManager.launchNewFragment(RacionListFragment())
+            supportFragmentManager.launchNewFragment(DayliFoodFragment())
         }
         binding.progresIcon.setOnClickListener {
             supportFragmentManager.launchNewFragment(ProgresFragment())
@@ -53,7 +54,7 @@ class MonitoringActivity : AppCompatActivity() {
             is ShopingListFragment -> {
                 launchShopingList()
             }
-            is RacionListFragment -> {
+            is DayliFoodFragment -> {
                 launchRacion()
             }
             is ProgresFragment -> {

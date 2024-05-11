@@ -1,5 +1,6 @@
 package aps.fithom.aweq.data.local.ingredient
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -10,8 +11,8 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface IngredientDao {
 
-    @Query("SELECT * FROM ingredientdb WHERE isActual = 1")
-    fun getShoppingList():Flow<List<IngredientDB>>
+    @Query("SELECT * FROM ingredientdb")
+    fun getShoppingList():LiveData<List<IngredientDB>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addIngredientsToShoppingList(listIngredients:List<IngredientDB>)

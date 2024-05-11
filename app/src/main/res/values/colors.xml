@@ -10,4 +10,6 @@
     <color name="fat">#ff1744</color>
     <color name="carbs">#d500f9</color>
     <color name="grey_light">#e0e0e0</color>
+    <color name="red">#d50000</color>
+    <color name="green">#1b5e20</color>
 </resources>

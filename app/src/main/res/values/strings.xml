@@ -38,4 +38,10 @@
     <string name="protein_and_value">Белки: %1$d</string>
     <string name="fat_and_value">Жиры: %1$d</string>
     <string name="carb_and_value">Углеводы: %1$d</string>
+    <string name="enter_recipe_name">Введите название блюда</string>
+    <string name="enter_weight_in_grams">Укажите вес блюда в граммах</string>
+    <string name="cancel">Отменить</string>
+    <string name="save">Добавить</string>
+    <string name="add_to_racion">Добавить в рацион</string>
+    <string name="toast_new_recipe">%1$s успешно добавлен в ваш рацион</string>
 </resources>

@@ -1,11 +1,7 @@
 package aps.fithom.aweq.data.local.recipe
 
-import android.content.Context
-import android.graphics.Bitmap
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import aps.fithom.aweq.domain.getBitmapByNameFromFildir
-import aps.fithom.aweq.domain.getBitmapFromAssets
 
 @Entity
 data class RecipeDB(
@@ -13,18 +9,17 @@ data class RecipeDB(
     val id: Int,
     val name: String,
     val imgRemote: String,
-    val imgLocal: String,
     val weightInGrams: Int,
     val kcalPerGram: Double,
     val proteinPerGram: Double,
     val fatPerGram: Double,
     val carbPerGram: Double,
-    val ingredients: String,
     val totalTimeInMinutes: Int,
-    val racionName: String,
-    val isPrePopulate: Boolean,
+    val date:String,
     val uri:String,
 ) {
+
+    var inShoppingCard = false
     val kcalTotal: Double
         get() = kcalPerGram * weightInGrams
     val proteinTotal: Double
@@ -45,14 +40,4 @@ data class RecipeDB(
     private val totalNuntrientsMass:Int
         get() = (proteinTotal + fatTotal + carbTotal).toInt()
 
-    fun getSavedImg(context: Context): Bitmap? {
-        return when (isPrePopulate) {
-            false -> {
-                context.getBitmapByNameFromFildir(imgLocal)
-            }
-            true -> {
-                context.getBitmapFromAssets(imgLocal)
-            }
-        }
-    }
 }
