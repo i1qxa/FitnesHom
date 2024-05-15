@@ -1,13 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.monitoring.progres.ProgresFragment">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:id="@+id/tvChartName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/top_menu_background"
+        style="@style/tv_header_small"
+        tools:text="Белки"
+        android:textColor="@color/orange_a400"
+        android:paddingVertical="10dp"
+        />
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vert50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8"
+        />
+
+    <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+        android:id="@+id/chart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvChartName"
+        app:layout_constraintBottom_toTopOf="@id/hor20"
+        android:layout_margin="5dp"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/tvNotEnouthData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvChartName"
+        app:layout_constraintBottom_toTopOf="@id/hor20"
+        style="@style/property_header"
+        android:text="@string/not_enouth_data"
+        android:layout_marginHorizontal="20dp"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/energy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/vert50"
+        app:layout_constraintTop_toBottomOf="@id/hor20"
+        app:layout_constraintBottom_toTopOf="@id/protein"
+        android:layout_marginHorizontal="5dp"
+        android:background="@drawable/button_inactive_background"
+        android:text="@string/energy"
+        android:paddingVertical="10dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/protein"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/vert50"
+        app:layout_constraintTop_toBottomOf="@id/energy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="5dp"
+        android:background="@drawable/button_inactive_background"
+        android:text="@string/protein"
+        android:paddingVertical="10dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+
+        />
+
+    <TextView
+        android:id="@+id/carb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/vert50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hor20"
+        app:layout_constraintBottom_toTopOf="@id/protein"
+        android:layout_marginHorizontal="5dp"
+        android:background="@drawable/button_inactive_background"
+        android:text="@string/carbs"
+        android:paddingVertical="10dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/fat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/vert50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/energy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="5dp"
+        android:background="@drawable/button_inactive_background"
+        android:text="@string/fat"
+        android:paddingVertical="10dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

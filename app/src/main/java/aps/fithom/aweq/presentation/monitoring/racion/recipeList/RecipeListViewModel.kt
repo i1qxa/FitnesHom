@@ -21,7 +21,6 @@ import kotlinx.coroutines.launch
 class RecipeListViewModel(application: Application) : AndroidViewModel(application) {
 
     private val foodDao = FoodDataBase.getInstance(application).recipeDao()
-    private val ingredientDao = FoodDataBase.getInstance(application).ingredientDao()
     private val retrofit = RecipeService.getInstance()
     val recipeList = MutableLiveData<List<RecipeItemShort?>?>()
     val state = MutableLiveData<State>(State.START)
@@ -30,6 +29,12 @@ class RecipeListViewModel(application: Application) : AndroidViewModel(applicati
         viewModelScope.launch {
             val recipeDB = foodItem.toRecipeDB(weight)
             foodDao.addRecipeItem(recipeDB)
+        }
+    }
+
+    fun addIngredientsToShoppingList(recipeItem:RecipeItemShort){
+        viewModelScope.launch {
+            recipeItem.translateIngredients()
         }
     }
 

@@ -40,7 +40,7 @@
     <TextView
         android:id="@+id/tvQuestionName"
         style="@style/tv_header_small"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="15dp"
         app:layout_constraintBottom_toBottomOf="@id/btnBack"
         app:layout_constraintEnd_toEndOf="parent"

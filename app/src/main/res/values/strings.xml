@@ -44,4 +44,9 @@
     <string name="save">Добавить</string>
     <string name="add_to_racion">Добавить в рацион</string>
     <string name="toast_new_recipe">%1$s успешно добавлен в ваш рацион</string>
+    <string name="enter_recipe_name_or_ingredient">Введите название блюда или основного ингредиента в строку поиска</string>
+    <string name="empty_request">По вашему запросу ничего не найдено</string>
+    <string name="empty_shopping_list">Список покупок пуст</string>
+    <string name="shopping_list">Список покупок</string>
+    <string name="not_enouth_data">Не достаточно данных для построения графика</string>
 </resources>

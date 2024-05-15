@@ -15,7 +15,7 @@ interface IngredientDao {
     fun getShoppingList():LiveData<List<IngredientDB>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addIngredientsToShoppingList(listIngredients:List<IngredientDB>)
+    suspend fun addListIngredientsToShoppingList(listIngredients:List<IngredientDB>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addIngredientItemToShoppingList(ingredient:IngredientDB)

@@ -1,14 +1,23 @@
 package aps.fithom.aweq.data.remote
 
-import android.graphics.Bitmap
-import android.icu.text.SimpleDateFormat
+import aps.fithom.aweq.data.local.ingredient.IngredientDB
+import aps.fithom.aweq.data.local.ingredient.IngredientDao
+import aps.fithom.aweq.data.local.ingredient.IngredientTMPItem
 import aps.fithom.aweq.data.local.recipe.RecipeDB
+import aps.fithom.aweq.domain.NewIngridients
+import aps.fithom.aweq.domain.State
 import aps.fithom.aweq.domain.getCurrentDateFormatted
-import kotlinx.serialization.Contextual
+import com.google.mlkit.common.model.DownloadConditions
+import com.google.mlkit.nl.translate.TranslateLanguage
+import com.google.mlkit.nl.translate.Translation
+import com.google.mlkit.nl.translate.TranslatorOptions
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import java.util.Calendar
+import kotlin.coroutines.CoroutineContext
 
 const val FIELDS_SPLITTER = "|"
 const val VALUE_SPLITTER = "~"
@@ -29,18 +38,19 @@ data class RecipeItemShort(
     val ingredients: List<String>?,
     val dietLabels: List<String>?,
     val mealType: List<String>?,
-    val totalTime: Double?
+    val totalTime: Double?,
+    val ingredientItems: List<IngredientItem>?
 ) {
-    fun toRecipeDB(weight: Int): RecipeDB {
+    fun toRecipeDB(weightPortion: Int): RecipeDB {
         return RecipeDB(
             0,
             label ?: "Название",
             imgRegular ?: "",
-            weight,
-            calories.toDouble() / 100,
-            protein.toDouble() / 100,
-            fat.toDouble() / 100,
-            carbs.toDouble() / 100,
+            weightPortion,
+            calories.toDouble() * weightPortion / weight,
+            protein.toDouble() * weightPortion / weight,
+            fat.toDouble() * weightPortion / weight,
+            carbs.toDouble() * weightPortion / weight,
             totalTime?.toInt() ?: 0,
             getCurrentDateFormatted(),
             uri
@@ -49,10 +59,10 @@ data class RecipeItemShort(
 
     var inShoppingCard = false
 
-    @Contextual
-    var imgBitmap: Bitmap? = null
-
-    var savedImgName = ""
+//    @Contextual
+//    var imgBitmap: Bitmap? = null
+//
+//    var savedImgName = ""
 
     private fun getIngredientsAsString(): String {
         return try {
@@ -71,16 +81,63 @@ data class RecipeItemShort(
         return answerSB.toString()
     }
 
+    fun translateIngredients() {
+        val listTranslatedItems = mutableListOf<IngredientTMPItem>()
+        val listDB = mutableListOf<IngredientDB>()
+        val ingredientsAsString = StringBuilder()
+        ingredientItems?.forEach { item ->
+            ingredientsAsString.append(item.text)
+            ingredientsAsString.append(VALUE_SPLITTER)
+            ingredientsAsString.append(item.measure)
+            ingredientsAsString.append(ITEM_SPLITTER)
+        }
+        val options =
+            TranslatorOptions.Builder().setSourceLanguage(TranslateLanguage.ENGLISH)
+                .setTargetLanguage(TranslateLanguage.RUSSIAN).build()
+        val englishRussianTranslator = Translation.getClient(options)
+        val conditions = DownloadConditions.Builder().build()
+        englishRussianTranslator.downloadModelIfNeeded(conditions).addOnSuccessListener {
+            val translator = Translation.getClient(options)
+            translator.translate(ingredientsAsString.toString())
+                .addOnSuccessListener { translatedCollection ->
+                    var startIndex = 0
+                    translatedCollection.split(ITEM_SPLITTER).forEach {
+                        if (it.isNotEmpty()) {
+                            val splittedIngredient = it.split(VALUE_SPLITTER)
+                            if (splittedIngredient.isNotEmpty()) {
+                                val translatedIngredient = IngredientTMPItem(
+                                    startIndex,
+                                    splittedIngredient[0] ?: "",
+                                    splittedIngredient[1] ?: ""
+                                )
+                                listTranslatedItems.add(translatedIngredient)
+                                startIndex++
+                            }
+                        }
+                    }
 
-    val proteinPercent: Int
-        get() = ((protein.toDouble() / totalNuntrientsMass) * 100).toInt()
+                    var index = 0
+                    ingredientItems?.forEach { ingredientItem ->
+                        listDB.add(listTranslatedItems[index].getIngredientDB(ingredientItem))
+                        index++
+                    }
+                    NewIngridients.updateIngredients(listDB)
+                }
+        }.addOnFailureListener { exception ->
 
-    val fatPercent: Int
-        get() = ((fat.toDouble() / totalNuntrientsMass) * 100).toInt()
+        }
+    }
 
-    val carbPercent: Int
-        get() = ((carbs.toDouble() / totalNuntrientsMass) * 100).toInt()
-    private val totalNuntrientsMass: Int
-        get() = (protein + fat + carbs)
+
+//    val proteinPercent: Int
+//        get() = ((protein.toDouble() / totalNuntrientsMass) * 100).toInt()
+//
+//    val fatPercent: Int
+//        get() = ((fat.toDouble() / totalNuntrientsMass) * 100).toInt()
+//
+//    val carbPercent: Int
+//        get() = ((carbs.toDouble() / totalNuntrientsMass) * 100).toInt()
+//    private val totalNuntrientsMass: Int
+//        get() = (protein + fat + carbs)
 
 }

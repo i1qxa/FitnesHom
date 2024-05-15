@@ -29,6 +29,7 @@
     <TextView
         android:id="@+id/tvEnergyCurrent"
         style="@style/property_header"
+        android:textSize="18sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/energy"
         app:layout_constraintBottom_toBottomOf="@id/pbEnergy"
@@ -55,6 +56,7 @@
     <TextView
         android:id="@+id/tvEnergyTarget"
         style="@style/property_header"
+        android:textSize="18sp"
         android:layout_marginEnd="10dp"
         android:textColor="@color/energy"
         app:layout_constraintBottom_toBottomOf="@id/pbEnergy"
@@ -75,6 +77,7 @@
     <TextView
         android:id="@+id/tvProteinCurrent"
         style="@style/property_header"
+        android:textSize="18sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/protein"
         app:layout_constraintBottom_toBottomOf="@id/pbProtein"
@@ -101,6 +104,7 @@
     <TextView
         android:id="@+id/tvProteinTarget"
         style="@style/property_header"
+        android:textSize="18sp"
         android:layout_marginEnd="10dp"
         android:textColor="@color/protein"
         app:layout_constraintBottom_toBottomOf="@id/pbProtein"
@@ -121,6 +125,7 @@
     <TextView
         android:id="@+id/tvCarbCurrent"
         style="@style/property_header"
+        android:textSize="18sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/carbs"
         app:layout_constraintBottom_toBottomOf="@id/pbCarbs"
@@ -147,6 +152,7 @@
     <TextView
         android:id="@+id/tvCarbTarget"
         style="@style/property_header"
+        android:textSize="18sp"
         android:layout_marginEnd="10dp"
         android:textColor="@color/carbs"
         app:layout_constraintBottom_toBottomOf="@id/pbCarbs"
@@ -167,6 +173,7 @@
     <TextView
         android:id="@+id/tvFatCurrent"
         style="@style/property_header"
+        android:textSize="18sp"
         android:layout_marginStart="10dp"
         android:paddingBottom="20dp"
         android:textColor="@color/fat"
@@ -195,6 +202,7 @@
     <TextView
         android:id="@+id/tvFatTarget"
         style="@style/property_header"
+        android:textSize="18sp"
         android:layout_marginEnd="10dp"
         android:paddingBottom="20dp"
         android:textColor="@color/fat"

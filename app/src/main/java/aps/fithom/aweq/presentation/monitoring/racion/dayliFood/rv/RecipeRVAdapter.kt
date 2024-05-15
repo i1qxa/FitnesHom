@@ -13,7 +13,6 @@ import coil.transform.RoundedCornersTransformation
 
 class RecipeRVAdapter : ListAdapter<RecipeDB, RecipeViewHolder>(RecipeDiffCallBack()) {
 
-    var onItemClickListener: ((RecipeDB) -> Unit)? = null
     var onShoppingCardClickListener: ((RecipeDB) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
@@ -39,19 +38,15 @@ class RecipeRVAdapter : ListAdapter<RecipeDB, RecipeViewHolder>(RecipeDiffCallBa
             }
         }
 
-        holder.itemView.setOnClickListener {
-//            item.imgBitmap = holder.ivLogo.drawable.toBitmap()
-            onItemClickListener?.invoke(item)
-        }
         with(holder) {
             ivLogo.load(item.imgRemote) {
                 transformations(RoundedCornersTransformation(20.0f))
             }
-            tvName.text = item.name?.firstCharToUpperCase()
-            tvKcal.text = context.getString(R.string.kcal_and_value, item.kcalTotal)
-            tvProtein.text = context.getString(R.string.protein_and_value, item.proteinTotal)
-            tvFat.text = context.getString(R.string.fat_and_value, item.fatTotal)
-            tvCarb.text = context.getString(R.string.carb_and_value, item.carbTotal)
+            tvName.text = item.name.firstCharToUpperCase()
+            tvKcal.text = context.getString(R.string.kcal_and_value, item.kcalPerGram.toInt())
+            tvProtein.text = context.getString(R.string.protein_and_value, item.proteinPerGram.toInt())
+            tvFat.text = context.getString(R.string.fat_and_value, item.fatPerGram.toInt())
+            tvCarb.text = context.getString(R.string.carb_and_value, item.carbPerGram.toInt())
         }
     }
 }

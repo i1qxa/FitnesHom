@@ -1,13 +1,346 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.monitoring.target.TargetFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardEnergyTarget"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cardProteinTarget"
+        android:layout_marginHorizontal="30dp"
+        android:elevation="6dp"
+        android:background="@color/grey_light"
+        android:layout_marginTop="20dp"
+        >
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4"
+                />
+
+            <TextView
+                android:id="@+id/tvEnergy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/glWeight"
+                android:layout_marginStart="40dp"
+                android:text="@string/energy"
+                style="@style/tv_header_small"
+                android:textColor="@color/orange_a400"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/tvEnergyValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnEditEnergy"
+                app:layout_constraintTop_toBottomOf="@id/glWeight"
+                android:layout_marginStart="20dp"
+                style="@style/tv_header_item"
+                android:textColor="@color/orange_a400"
+                android:paddingStart="20dp"
+                />
+
+            <EditText
+                android:id="@+id/etEnergyValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnEditEnergy"
+                app:layout_constraintTop_toBottomOf="@id/glWeight"
+                android:layout_marginStart="20dp"
+                style="@style/tv_header_item"
+                android:textColor="@color/orange_a400"
+                android:paddingStart="20dp"
+                android:visibility="gone"
+                android:inputType="number"
+                />
+
+            <ImageView
+                android:id="@+id/btnEditEnergy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/glWeight"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/edit"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardProteinTarget"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardEnergyTarget"
+        app:layout_constraintBottom_toTopOf="@id/cardFatTarget"
+        android:layout_marginHorizontal="30dp"
+        android:elevation="6dp"
+        android:layout_marginTop="20dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glProtein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4"
+                />
+
+            <TextView
+                android:id="@+id/tvProtein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/glProtein"
+                android:layout_marginStart="40dp"
+                android:text="@string/protein"
+                style="@style/tv_header_small"
+                android:textColor="@color/orange_a400"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/tvProteinValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnProteinHeight"
+                app:layout_constraintTop_toBottomOf="@id/glProtein"
+                android:layout_marginStart="20dp"
+                style="@style/tv_header_small"
+                android:textColor="@color/orange_a400"
+                android:textStyle="bold"
+                android:paddingStart="20dp"
+                />
+
+            <EditText
+                android:id="@+id/etProteinValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnProteinHeight"
+                app:layout_constraintTop_toBottomOf="@id/glProtein"
+                android:layout_marginStart="20dp"
+                style="@style/tv_header_item"
+                android:textColor="@color/orange_a400"
+                android:paddingStart="20dp"
+                android:visibility="gone"
+                android:inputType="number"
+                />
+
+            <ImageView
+                android:id="@+id/btnProteinHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/glProtein"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/edit"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardFatTarget"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardProteinTarget"
+        app:layout_constraintBottom_toTopOf="@id/cardCarbTarget"
+        android:layout_marginHorizontal="30dp"
+        android:elevation="6dp"
+        android:layout_marginTop="20dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glFat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4"
+                />
+
+            <TextView
+                android:id="@+id/tvFat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/glFat"
+                android:layout_marginStart="40dp"
+                android:text="@string/fat"
+                style="@style/tv_header_small"
+                android:textColor="@color/orange_a400"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/tvFatValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnEditFat"
+                app:layout_constraintTop_toBottomOf="@id/glFat"
+                android:layout_marginStart="20dp"
+                style="@style/tv_header_small"
+                android:textColor="@color/orange_a400"
+                android:textStyle="bold"
+                android:paddingStart="20dp"
+                />
+
+            <EditText
+                android:id="@+id/etFatValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnEditFat"
+                app:layout_constraintTop_toBottomOf="@id/glFat"
+                android:layout_marginStart="20dp"
+                style="@style/tv_header_item"
+                android:textColor="@color/orange_a400"
+                android:paddingStart="20dp"
+                android:visibility="gone"
+                android:inputType="number"
+                />
+
+            <ImageView
+                android:id="@+id/btnEditFat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/glFat"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/edit"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardCarbTarget"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardFatTarget"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="30dp"
+        android:elevation="6dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glCarb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4"
+                />
+
+            <TextView
+                android:id="@+id/tvCarb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/glCarb"
+                android:layout_marginStart="40dp"
+                android:text="@string/carbs"
+                style="@style/tv_header_small"
+                android:textColor="@color/orange_a400"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/tvCarbValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnEditCarb"
+                app:layout_constraintTop_toBottomOf="@id/glCarb"
+                android:layout_marginStart="20dp"
+                style="@style/tv_header_small"
+                android:textColor="@color/orange_a400"
+                android:textStyle="bold"
+                android:paddingStart="20dp"
+                />
+
+            <EditText
+                android:id="@+id/etCarbValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnEditCarb"
+                app:layout_constraintTop_toBottomOf="@id/glCarb"
+                android:layout_marginStart="20dp"
+                style="@style/tv_header_item"
+                android:textColor="@color/orange_a400"
+                android:paddingStart="20dp"
+                android:visibility="gone"
+                android:inputType="number"
+                />
+
+            <ImageView
+                android:id="@+id/btnEditCarb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/glCarb"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/edit"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

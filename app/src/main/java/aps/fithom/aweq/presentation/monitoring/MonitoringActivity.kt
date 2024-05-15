@@ -7,8 +7,10 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.FragmentOnAttachListener
+import androidx.lifecycle.lifecycleScope
 import aps.fithom.aweq.R
 import aps.fithom.aweq.databinding.ActivityMonitoringBinding
+import aps.fithom.aweq.domain.NewIngridients
 import aps.fithom.aweq.domain.launchNewFragment
 import aps.fithom.aweq.domain.makeInvisible
 import aps.fithom.aweq.domain.makeVisible
@@ -16,10 +18,13 @@ import aps.fithom.aweq.presentation.monitoring.progres.ProgresFragment
 import aps.fithom.aweq.presentation.monitoring.racion.dayliFood.DayliFoodFragment
 import aps.fithom.aweq.presentation.monitoring.shoping_list.ShopingListFragment
 import aps.fithom.aweq.presentation.monitoring.target.TargetFragment
+import aps.foodfit.jyrbf.data.local.recipe.FoodDataBase
+import kotlinx.coroutines.launch
 
 class MonitoringActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityMonitoringBinding.inflate(layoutInflater) }
+    private val ingredientDao by lazy { FoodDataBase.getInstance(application).ingredientDao()}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -32,6 +37,7 @@ class MonitoringActivity : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         supportFragmentManager.addFragmentOnAttachListener(fragmentChangeListener)
         setupNav()
+        observeNewIngridients()
     }
 
     private fun setupNav() {
@@ -50,16 +56,19 @@ class MonitoringActivity : AppCompatActivity() {
     }
 
     private val fragmentChangeListener = FragmentOnAttachListener { fragmentManager, fragment ->
-        when(fragment){
+        when (fragment) {
             is ShopingListFragment -> {
                 launchShopingList()
             }
+
             is DayliFoodFragment -> {
                 launchRacion()
             }
+
             is ProgresFragment -> {
                 launchProgress()
             }
+
             is TargetFragment -> {
                 launchTarget()
             }
@@ -183,6 +192,15 @@ class MonitoringActivity : AppCompatActivity() {
         }
     }
 
+    private fun observeNewIngridients() {
+        NewIngridients.newIngridientsLD.observe(this) {
+            if (it != null) {
+                lifecycleScope.launch {
+                    ingredientDao.addListIngredientsToShoppingList(it)
+                }
+            }
+        }
+    }
 
 
 }

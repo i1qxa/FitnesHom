@@ -44,7 +44,8 @@ data class RecipeItem(
         ingredientLines,
         dietLabels,
         mealType,
-        totalTime
+        totalTime,
+        ingredients
     )
 
     val proteinPercent:Int

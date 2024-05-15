@@ -1,16 +1,10 @@
 package aps.fithom.aweq.domain
 
-import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.icu.text.SimpleDateFormat
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import aps.fithom.aweq.R
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import java.io.File
 import java.util.Calendar
 
 const val BASE_DELAY:Long = 500
@@ -19,6 +13,10 @@ const val APP_KEY = "ed52861f7f0cc88e8ba9f5437a15082e"
 
 enum class State{
     LOADING, COMPLETE, ERROR, START
+}
+
+enum class NutrientsState{
+    ENERGY, PROTEIN, FAT, CARBS
 }
 
 fun getCurrentDateFormatted():String{
@@ -55,4 +53,8 @@ fun View.makeInvisible(){
 
 fun View.makeVisible(){
     this.visibility = View.VISIBLE
+}
+
+fun View.gone(){
+    this.visibility = View.GONE
 }

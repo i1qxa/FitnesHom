@@ -42,6 +42,7 @@ class DayliFoodFragment : Fragment() {
         fetchTargetValues()
         fetchCurrentNutrients()
         observeRecipeList()
+        setupRV()
     }
 
     private fun observeRecipeList(){
@@ -63,9 +64,11 @@ class DayliFoodFragment : Fragment() {
     }
 
     private fun setupRVAdapter(){
-//        rvAdapter.onBtnAddClickListener = { recipeItemShort ->
-//            showInputWeightDialog(recipeItemShort)
-//        }
+        rvAdapter.onShoppingCardClickListener = {
+            viewModel.addIngredientsToShoppingList(it.uri)
+            it.inShoppingCard = true
+            rvAdapter.notifyDataSetChanged()
+        }
     }
 
     private fun setupBtnAddClickListener(){

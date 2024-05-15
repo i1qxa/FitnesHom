@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import aps.fithom.aweq.domain.Nutrients
+import aps.fithom.aweq.presentation.monitoring.progres.ProgressData
 
 @Dao
 interface RecipeDao {
@@ -16,10 +17,22 @@ interface RecipeDao {
     @Query("SELECT * FROM recipedb WHERE date =:currentDate")
     fun getCurrentRacion(currentDate:String):LiveData<List<RecipeDB>>
 
-    @Query("SELECT sum(kcalPerGram*weightInGrams) as energy, sum(proteinPerGram*weightInGrams) as protein," +
-            "sum(carbPerGram*weightInGrams) as carbs, sum(fatPerGram*weightInGrams) as fat" +
+    @Query("SELECT sum(kcalPerGram) as energy, sum(proteinPerGram) as protein," +
+            "sum(carbPerGram) as carbs, sum(fatPerGram) as fat" +
             " FROM RecipeDB WHERE date =:currentDate ")
     fun fetchNutrients(currentDate: String):LiveData<Nutrients>
+
+    @Query("SELECT date, sum(kcalPerGram) as value FROM recipedb GROUP BY date")
+    fun getEnergyData():LiveData<List<ProgressData>>
+
+    @Query("SELECT date, sum(proteinPerGram) as value FROM recipedb GROUP BY date")
+    fun getProteinData():LiveData<List<ProgressData>>
+
+    @Query("SELECT date, sum(fatPerGram) as value FROM recipedb GROUP BY date")
+    fun getFatData():LiveData<List<ProgressData>>
+
+    @Query("SELECT date, sum(carbPerGram) as value FROM recipedb GROUP BY date")
+    fun getCarbsData():LiveData<List<ProgressData>>
 
 
 

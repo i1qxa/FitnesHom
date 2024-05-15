@@ -13,7 +13,7 @@ import coil.transform.RoundedCornersTransformation
 class FoodRVAdapter : ListAdapter<RecipeItemShort, FoodViewHolder>(FoodDiffCallBack()) {
 
     var onItemClickListener: ((RecipeItemShort) -> Unit)? = null
-    var onShoppingCardClickListener: ((RecipeItemShort) -> Unit)? = null
+    var onShoppingCardClickListener: ((RecipeItemShort, position:Int) -> Unit)? = null
     var onBtnAddClickListener: ((RecipeItemShort) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
@@ -35,14 +35,13 @@ class FoodRVAdapter : ListAdapter<RecipeItemShort, FoodViewHolder>(FoodDiffCallB
         }
         holder.btnShoppingCart.setOnClickListener {
             if (!item.inShoppingCard) {
-                onShoppingCardClickListener?.invoke(item)
+                onShoppingCardClickListener?.invoke(item, position)
             }
         }
         holder.btnAddToRacion.setOnClickListener {
             onBtnAddClickListener?.invoke(item)
         }
         holder.itemView.setOnClickListener {
-//            item.imgBitmap = holder.ivLogo.drawable.toBitmap()
             onItemClickListener?.invoke(item)
         }
         with(holder) {
@@ -56,5 +55,7 @@ class FoodRVAdapter : ListAdapter<RecipeItemShort, FoodViewHolder>(FoodDiffCallB
             tvCarb.text = context.getString(R.string.carb_and_value, item.carbs)
         }
     }
+
+
 }
 

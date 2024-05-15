@@ -20,24 +20,24 @@ data class RecipeDB(
 ) {
 
     var inShoppingCard = false
-    val kcalTotal: Double
-        get() = kcalPerGram * weightInGrams
-    val proteinTotal: Double
-        get() = proteinPerGram * weightInGrams
-    val fatTotal: Double
-        get() = fatPerGram * weightInGrams
-    val carbTotal: Double
-        get() = carbPerGram * weightInGrams
+//    val kcalTotal: Double
+//        get() = kcalPerGram * weightInGrams
+//    val proteinTotal: Double
+//        get() = proteinPerGram * weightInGrams
+//    val fatTotal: Double
+//        get() = fatPerGram * weightInGrams
+//    val carbTotal: Double
+//        get() = carbPerGram * weightInGrams
 
-    val proteinPercent:Int
-        get() = ((proteinTotal/totalNuntrientsMass)*100).toInt()
-
-    val fatPercent:Int
-        get() = ((fatTotal/totalNuntrientsMass)*100).toInt()
-
-    val carbPercent:Int
-        get() = ((carbTotal/totalNuntrientsMass)*100).toInt()
-    private val totalNuntrientsMass:Int
-        get() = (proteinTotal + fatTotal + carbTotal).toInt()
+//    val proteinPercent:Int
+//        get() = ((proteinTotal/totalNuntrientsMass)*100).toInt()
+//
+//    val fatPercent:Int
+//        get() = ((fatTotal/totalNuntrientsMass)*100).toInt()
+//
+//    val carbPercent:Int
+//        get() = ((carbTotal/totalNuntrientsMass)*100).toInt()
+//    private val totalNuntrientsMass:Int
+//        get() = (proteinTotal + fatTotal + carbTotal).toInt()
 
 }

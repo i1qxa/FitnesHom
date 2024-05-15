@@ -14,6 +14,9 @@ import aps.fithom.aweq.R
 import aps.fithom.aweq.data.remote.RecipeItemShort
 import aps.fithom.aweq.databinding.FragmentRecipeListBinding
 import aps.fithom.aweq.databinding.InputWeightDialogBinding
+import aps.fithom.aweq.domain.State
+import aps.fithom.aweq.domain.gone
+import aps.fithom.aweq.domain.makeVisible
 import aps.fithom.aweq.presentation.monitoring.racion.recipeList.rv.FoodRVAdapter
 
 class RecipeListFragment : Fragment() {
@@ -34,6 +37,43 @@ class RecipeListFragment : Fragment() {
         setupRV()
         observeRecipeList()
         setupBtnClickListeners()
+        observeState()
+    }
+
+    private fun observeState(){
+        viewModel.state.observe(viewLifecycleOwner){ state ->
+            when(state){
+                State.LOADING ->{
+                    hideEverything()
+                    binding.pbLoading.makeVisible()
+                }
+                State.START ->{
+                    hideEverything()
+                    binding.tvStart.makeVisible()
+                }
+                State.ERROR ->{
+                    hideEverything()
+                    binding.tvEmptyList.makeVisible()
+                }
+                State.COMPLETE ->{
+                    hideEverything()
+                    binding.rvRecipeList.makeVisible()
+                }
+                null ->{
+                    hideEverything()
+                    binding.tvEmptyList.makeVisible()
+                }
+            }
+        }
+    }
+
+    private fun hideEverything(){
+        with(binding){
+            tvEmptyList.gone()
+            tvStart.gone()
+            pbLoading.gone()
+            rvRecipeList.gone()
+        }
     }
 
     private fun setupBtnClickListeners(){
@@ -66,6 +106,11 @@ class RecipeListFragment : Fragment() {
     private fun setupRVAdapter(){
         rvAdapter.onBtnAddClickListener = { recipeItemShort ->
             showInputWeightDialog(recipeItemShort)
+        }
+        rvAdapter.onShoppingCardClickListener = { recipeItemShort, position ->
+            viewModel.addIngredientsToShoppingList(recipeItemShort)
+            recipeItemShort.inShoppingCard = true
+            rvAdapter.notifyItemChanged(position)
         }
     }
 
