@@ -17,7 +17,6 @@ import aps.fithom.aweq.domain.TARGET_FAT_DS
 import aps.fithom.aweq.domain.TARGET_PROTEIN_DS
 import aps.fithom.aweq.domain.dataStore
 import aps.fithom.aweq.domain.gone
-import aps.fithom.aweq.domain.makeInvisible
 import aps.fithom.aweq.domain.makeVisible
 import aps.fithom.aweq.domain.setTargetCalories
 import aps.fithom.aweq.domain.setTargetFat
@@ -57,7 +56,7 @@ class TargetFragment : Fragment() {
                     binding.etEnergyValue.makeVisible()
                     binding.btnEditEnergy.setImageResource(R.drawable.save)
                     binding.etEnergyValue.doOnTextChanged { text, start, before, count ->
-                        viewModel.currentValue = text.toString().toInt()
+                        viewModel.currentValue = text.toString().ifEmpty { "0" }.toInt()
                     }
                     binding.btnEditEnergy.setOnClickListener {
                         lifecycleScope.launch {
@@ -74,7 +73,7 @@ class TargetFragment : Fragment() {
                     binding.etProteinValue.makeVisible()
                     binding.btnProteinHeight.setImageResource(R.drawable.save)
                     binding.etProteinValue.doOnTextChanged { text, start, before, count ->
-                        viewModel.currentValue = text.toString().toInt()
+                        viewModel.currentValue = text.toString().ifEmpty { "0" }.toInt()
                     }
                     binding.btnProteinHeight.setOnClickListener {
                         lifecycleScope.launch {
@@ -91,7 +90,7 @@ class TargetFragment : Fragment() {
                     binding.etFatValue.makeVisible()
                     binding.btnEditFat.setImageResource(R.drawable.save)
                     binding.etFatValue.doOnTextChanged { text, start, before, count ->
-                        viewModel.currentValue = text.toString().toInt()
+                        viewModel.currentValue = text.toString().ifEmpty { "0" }.toInt()
                     }
                     binding.btnEditFat.setOnClickListener {
                         lifecycleScope.launch {
@@ -108,7 +107,7 @@ class TargetFragment : Fragment() {
                     binding.etCarbValue.makeVisible()
                     binding.btnEditCarb.setImageResource(R.drawable.save)
                     binding.etCarbValue.doOnTextChanged { text, start, before, count ->
-                        viewModel.currentValue = text.toString().toInt()
+                        viewModel.currentValue = text.toString().ifEmpty { "0" }.toInt()
                     }
                     binding.btnEditCarb.setOnClickListener {
                         lifecycleScope.launch {

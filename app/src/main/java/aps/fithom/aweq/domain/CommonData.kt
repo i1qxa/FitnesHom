@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager
 import aps.fithom.aweq.R
 import java.util.Calendar
 
-const val BASE_DELAY:Long = 500
+const val BASE_DELAY:Long = 3000
 const val APP_ID = "a7807cbf"
 const val APP_KEY = "ed52861f7f0cc88e8ba9f5437a15082e"
 

@@ -34,9 +34,10 @@
 
             <TextView
                 android:id="@+id/tvEnergy"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnEditEnergy"
                 app:layout_constraintBottom_toTopOf="@id/glWeight"
                 android:layout_marginStart="40dp"
                 android:text="@string/energy"
@@ -53,8 +54,9 @@
                 app:layout_constraintEnd_toStartOf="@id/btnEditEnergy"
                 app:layout_constraintTop_toBottomOf="@id/glWeight"
                 android:layout_marginStart="20dp"
-                style="@style/tv_header_item"
+                style="@style/tv_header_small"
                 android:textColor="@color/orange_a400"
+                android:textStyle="bold"
                 android:paddingStart="20dp"
                 />
 
@@ -117,9 +119,10 @@
 
             <TextView
                 android:id="@+id/tvProtein"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnProteinHeight"
                 app:layout_constraintBottom_toTopOf="@id/glProtein"
                 android:layout_marginStart="40dp"
                 android:text="@string/protein"
@@ -201,9 +204,10 @@
 
             <TextView
                 android:id="@+id/tvFat"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnEditFat"
                 app:layout_constraintBottom_toTopOf="@id/glFat"
                 android:layout_marginStart="40dp"
                 android:text="@string/fat"
@@ -286,9 +290,10 @@
 
             <TextView
                 android:id="@+id/tvCarb"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnEditCarb"
                 app:layout_constraintBottom_toTopOf="@id/glCarb"
                 android:layout_marginStart="40dp"
                 android:text="@string/carbs"
